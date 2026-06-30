@@ -150,34 +150,33 @@
 </div>
 
 <script>
-(function(){
-  const BLANK = '\u200f';
-  let waCount = 1;
+const BLANK = '\u200f';
+let waCount = 1;
 
-  function buildChars(n){
+function buildChars(n){
     return BLANK.repeat(n);
-  }
+}
 
-  function showToast(id, msg){
+function showToast(id, msg){
     const t = document.getElementById(id);
     if(!t) return;
     t.textContent = msg;
     t.classList.add('show');
     setTimeout(() => { t.classList.remove('show'); }, 1600);
-  }
+}
 
-  function flashBtn(id, orig){
+function flashBtn(id, orig){
     const b = document.getElementById(id);
     if(!b) return;
     b.classList.add('ok');
     b.textContent = 'Kopyalandı!';
     setTimeout(() => {
-      b.classList.remove('ok');
-      b.textContent = orig;
+        b.classList.remove('ok');
+        b.textContent = orig;
     }, 1800);
-  }
+}
 
-  function fallbackCopy(text, toastId, btnId, btnOrig){
+function fallbackCopy(text, toastId, btnId, btnOrig){
     const ta = document.createElement('textarea');
     ta.value = text;
     ta.style.position = 'fixed';
@@ -186,52 +185,52 @@
     ta.select();
     ta.setSelectionRange(0, 99999);
     try {
-      if(document.execCommand('copy')){
-        showToast(toastId, 'Kopyalandı!');
-        flashBtn(btnId, btnOrig);
-      } else {
-        alert('Lütfen kutucuğa uzun basıp manuel kopyalayın.');
-      }
+        if(document.execCommand('copy')){
+            showToast(toastId, 'Kopyalandı!');
+            flashBtn(btnId, btnOrig);
+        } else {
+            alert('Lütfen kutucuğa uzun basıp manuel kopyalayın.');
+        }
     } catch (err) {
-      alert('Lütfen kutucuğa uzun basıp manuel kopyalayın.');
+        alert('Lütfen kutucuğa uzun basıp manuel kopyalayın.');
     }
     document.body.removeChild(ta);
-  }
+}
 
-  function doCopy(text, toastId, btnId, btnOrig){
+function doCopy(text, toastId, btnId, btnOrig){
     if(navigator.clipboard && navigator.clipboard.writeText){
-      navigator.clipboard.writeText(text).then(() => {
-        showToast(toastId, 'Kopyalandı!');
-        flashBtn(btnId, btnOrig);
-      }).catch(() => {
-        fallbackCopy(text, toastId, btnId, btnOrig);
-      });
+        navigator.clipboard.writeText(text).then(() => {
+            showToast(toastId, 'Kopyalandı!');
+            flashBtn(btnId, btnOrig);
+        }).catch(() => {
+            fallbackCopy(text, toastId, btnId, btnOrig);
+        });
     } else {
-      fallbackCopy(text, toastId, btnId, btnOrig);
+        fallbackCopy(text, toastId, btnId, btnOrig);
     }
-  }
+}
 
-  window.waUpdateCount = function(v){
+function waUpdateCount(v){
     waCount = parseInt(v);
     const lbl = document.getElementById('wa-count-label');
     if(lbl) lbl.textContent = waCount;
-  };
+}
 
-  window.waSetMax = function(){
+function waSetMax(){
     const slider = document.getElementById('wa-count-slider');
     if(slider) slider.value = 50;
     waUpdateCount(50);
-  };
+}
 
-  window.waCopySingle = function(){
+function waCopySingle(){
     doCopy(buildChars(waCount), 'wa-toast-single', 'wa-btn-single', 'Kopyala');
-  };
+}
 
-  window.waCopyBulk = function(){
+function waCopyBulk(){
     doCopy(buildChars(5458), 'wa-toast-bulk', 'wa-btn-bulk', '5458 Boşluğu Kopyala');
-  };
+}
 
-  window.waSwitchTab = function(name){
+function waSwitchTab(name){
     const tabs = ['single','bulk'];
     document.querySelectorAll('.wa-section').forEach(s => s.classList.remove('active'));
     document.querySelectorAll('.wa-tab').forEach(t => t.classList.remove('active'));
@@ -243,8 +242,7 @@
     if(tabElements[tabs.indexOf(name)]) {
         tabElements[tabs.indexOf(name)].classList.add('active');
     }
-  };
-})();
+}
 </script>
 
 </body>
