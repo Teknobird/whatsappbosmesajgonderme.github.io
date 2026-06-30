@@ -1,65 +1,76 @@
-<style>
-*{box-sizing:border-box;margin:0;padding:0}
-.wa-wrap{font-family:Arial,sans-serif;max-width:100%;margin:0 auto;padding:0.5rem}
-.wa-header{display:flex !important;flex-direction:row !important;align-items:center !important;gap:10px;margin-bottom:1.25rem;float:none !important}
-.wa-icon{width:36px !important;height:36px !important;min-width:36px;background:#25D366;border-radius:50%;display:flex !important;align-items:center !important;justify-content:center !important;float:none !important;margin:0 !important}
-.wa-icon svg{width:20px !important;height:20px !important;fill:#fff;display:block}
-.wa-wrap h2{font-size:18px;font-weight:600;color:#222;margin:0 !important;padding:0 !important;float:none !important;display:inline !important;line-height:1.3}
-.wa-tabs{display:flex;border:1px solid #ddd;border-radius:8px;overflow:hidden;margin-bottom:1.25rem}
-.wa-tab{flex:1;padding:10px;text-align:center;font-size:13px;cursor:pointer;background:#f7f7f7;color:#666;border:none;transition:background .15s}
-.wa-tab.active{background:#fff;color:#111;font-weight:600}
-.wa-tab:not(:last-child){border-right:1px solid #ddd}
-.wa-card{background:#fff;border:1px solid #e0e0e0;border-radius:12px;padding:1rem 1.25rem;margin-bottom:1rem}
-.wa-label{font-size:13px;color:#777;margin-bottom:.5rem}
-.wa-box{background:#f5f5f5;border:1px dashed #bbb;border-radius:8px;padding:1rem 0.5rem;min-height:60px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .15s;position:relative;margin-bottom:.75rem}
-.wa-box:hover{background:#e8f4fe}
-.wa-hint{font-size:12px;color:#999;text-align:center}
-.wa-count-row{display:flex;align-items:center;gap:10px;margin-bottom:.75rem}
-.wa-count-row label{font-size:13px;color:#777;white-space:nowrap}
-.wa-count-row input[type=range]{flex:1}
-.wa-badge{font-size:13px;font-weight:600;color:#1a73e8;min-width:42px;text-align:right}
-.wa-btn-row{display:flex;gap:8px}
-.wa-btn{flex:1;padding:10px 16px;border-radius:8px;border:1px solid #ccc;background:#fff;color:#333;font-size:14px;cursor:pointer;transition:background .15s}
-.wa-btn:hover{background:#f0f0f0}
-.wa-btn.ok{border-color:#25D366;color:#25D366;background:#f0fdf4}
-.wa-btn-max{padding:10px 14px;border-radius:8px;border:1px solid #1a73e8;background:#e8f4fe;color:#1a73e8;font-size:13px;cursor:pointer;transition:background .15s}
-.wa-btn-max:hover{background:#1a73e8;color:#fff}
-.wa-info{display:flex;align-items:flex-start;gap:8px;background:#fff8e1;border:1px solid #ffe082;border-radius:8px;padding:.75rem;margin-bottom:1rem}
-.wa-info p{font-size:13px;color:#795548;line-height:1.5}
-.wa-platform-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:8px;margin-top:.75rem}
-.wa-ptag{background:#f5f5f5;border:1px solid #e0e0e0;border-radius:8px;padding:6px 10px;font-size:12px;color:#555;text-align:center}
-.wa-section{display:none}
-.wa-section.active{display:block}
-.wa-toast{position:absolute;top:-36px;left:50%;transform:translateX(-50%);background:#25D366;color:#fff;font-size:12px;padding:5px 12px;border-radius:12px;white-space:nowrap;opacity:0;transition:opacity .2s;pointer-events:none}
-.wa-toast.show{opacity:1}
-.wa-step{display:flex;align-items:flex-start;gap:10px;margin-bottom:8px}
-.wa-stepnum{width:24px;height:24px;border-radius:50%;background:#e8f4fe;color:#1a73e8;font-size:12px;font-weight:600;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
-.wa-step p{font-size:14px;color:#555;line-height:1.5}
-</style>
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Google ve diğer arama motorlarının bu sayfayı indekslemesini engeller -->
+    <meta name="robots" content="noindex, nofollow">
+    <title>WhatsApp Boş Mesaj Gönderici</title>
+    
+    <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    .wa-wrap{font-family:Arial,sans-serif;max-width:100%;margin:0 auto;padding:0.5rem}
+    .wa-header{display:flex !important;flex-direction:row !important;align-items:center !important;gap:10px;margin-bottom:1.25rem;float:none !important}
+    .wa-icon{width:36px !important;height:36px !important;min-width:36px;background:#25D366;border-radius:50%;display:flex !important;align-items:center !important;justify-content:center !important;float:none !important;margin:0 !important}
+    .wa-icon svg{width:20px !important;height:20px !important;fill:#fff;display:block}
+    .wa-wrap h2{font-size:18px;font-weight:600;color:#222;margin:0 !important;padding:0 !important;float:none !important;display:inline !important;line-height:1.3}
+    .wa-tabs{display:flex;border:1px solid #ddd;border-radius:8px;overflow:hidden;margin-bottom:1.25rem}
+    .wa-tab{flex:1;padding:10px;text-align:center;font-size:13px;cursor:pointer;background:#f7f7f7;color:#666;border:none;transition:background .15s}
+    .wa-tab.active{background:#fff;color:#111;font-weight:600}
+    .wa-tab:not(:last-child){border-right:1px solid #ddd}
+    .wa-card{background:#fff;border:1px solid #e0e0e0;border-radius:12px;padding:1rem 1.25rem;margin-bottom:1rem}
+    .wa-label{font-size:13px;color:#777;margin-bottom:.5rem}
+    .wa-box{background:#f5f5f5;border:1px dashed #bbb;border-radius:8px;padding:1rem 0.5rem;min-height:60px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .15s;position:relative;margin-bottom:.75rem}
+    .wa-box:hover{background:#e8f4fe}
+    .wa-hint{font-size:12px;color:#999;text-align:center}
+    .wa-count-row{display:flex;align-items:center;gap:10px;margin-bottom:.75rem}
+    .wa-count-row label{font-size:13px;color:#777;white-space:nowrap}
+    .wa-count-row input[type=range]{flex:1}
+    .wa-badge{font-size:13px;font-weight:600;color:#1a73e8;min-width:42px;text-align:right}
+    .wa-btn-row{display:flex;gap:8px}
+    .wa-btn{flex:1;padding:10px 16px;border-radius:8px;border:1px solid #ccc;background:#fff;color:#333;font-size:14px;cursor:pointer;transition:background .15s}
+    .wa-btn:hover{background:#f0f0f0}
+    .wa-btn.ok{border-color:#25D366;color:#25D366;background:#f0fdf4}
+    .wa-btn-max{padding:10px 14px;border-radius:8px;border:1px solid #1a73e8;background:#e8f4fe;color:#1a73e8;font-size:13px;cursor:pointer;transition:background .15s}
+    .wa-btn-max:hover{background:#1a73e8;color:#fff}
+    .wa-info{display:flex;align-items:flex-start;gap:8px;background:#fff8e1;border:1px solid #ffe082;border-radius:8px;padding:.75rem;margin-bottom:1rem}
+    .wa-info p{font-size:13px;color:#795548;line-height:1.5}
+    .wa-platform-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:8px;margin-top:.75rem}
+    .wa-ptag{background:#f5f5f5;border:1px solid #e0e0e0;border-radius:8px;padding:6px 10px;font-size:12px;color:#555;text-align:center}
+    .wa-section{display:none}
+    .wa-section.active{display:block}
+    .wa-toast{position:absolute;top:-36px;left:50%;transform:translateX(-50%);background:#25D366;color:#fff;font-size:12px;padding:5px 12px;border-radius:12px;white-space:nowrap;opacity:0;transition:opacity .2s;pointer-events:none}
+    .wa-toast.show{opacity:1}
+    .wa-step{display:flex;align-items:flex-start;gap:10px;margin-bottom:8px}
+    .wa-stepnum{width:24px;height:24px;border-radius:50%;background:#e8f4fe;color:#1a73e8;font-size:12px;font-weight:600;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+    .wa-step p{font-size:14px;color:#555;line-height:1.5}
+    </style>
+</head>
+<body>
 
 <div class="wa-wrap">
-  <div class="wa-header" style="display:flex !important;flex-direction:row !important;align-items:center !important;gap:10px;margin-bottom:1.25rem">
-    <div class="wa-icon" style="width:36px !important;height:36px !important;min-width:36px;background:#25D366;border-radius:50%;display:flex !important;align-items:center !important;justify-content:center !important;flex-shrink:0">
+  <div class="wa-header">
+    <div class="wa-icon">
       <svg viewBox="0 0 448 512"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-5.5-2.8-23.4-8.6-44.6-27.5-16.4-14.7-27.5-32.8-30.7-38.4-3.2-5.6-.3-8.6 2.5-11.4 2.5-2.5 5.5-6.5 8.3-9.7 2.8-3.3 3.7-5.6 5.5-9.3 1.9-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 13.2 5.8 23.5 9.2 31.5 11.8 13.3 4.2 25.4 3.6 35 2.2 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
     </div>
-    <h2 style="font-size:18px;font-weight:600;color:#222;margin:0 !important;padding:0 !important;line-height:1.3;display:inline-block">WhatsApp Bo&#351; Mesaj G&#246;nderici</h2>
+    <h2>WhatsApp Boş Mesaj Gönderici</h2>
   </div>
 
   <div class="wa-tabs">
-    <button class="wa-tab active" onclick="waSwitchTab('single')">Tekli Bo&#351;luk</button>
-    <button class="wa-tab" onclick="waSwitchTab('bulk')">Toplu Bo&#351;luk (Max)</button>
-    <button class="wa-tab" onclick="waSwitchTab('howto')">Nas&#305;l Kullan&#305;l&#305;r?</button>
+    <button class="wa-tab active" onclick="waSwitchTab('single')">Tekli Boşluk</button>
+    <button class="wa-tab" onclick="waSwitchTab('bulk')">Toplu Boşluk (Max)</button>
+    <button class="wa-tab" onclick="waSwitchTab('howto')">Nasıl Kullanılır?</button>
   </div>
 
   <div id="wa-tab-single" class="wa-section active">
     <div class="wa-card">
-      <p class="wa-label">Kopyalanacak g&#246;r&#252;nmez bo&#351;luk karakteri:</p>
+      <p class="wa-label">Kopyalanacak görünmez boşluk karakteri:</p>
       <div class="wa-box" onclick="waCopySingle()">
         <div class="wa-toast" id="wa-toast-single"></div>
-        <p class="wa-hint">Buraya t&#305;klayarak kopyala</p>
+        <p class="wa-hint">Buraya tıklayarak kopyala</p>
       </div>
       <div class="wa-count-row">
-        <label>Bo&#351;luk say&#305;s&#305;:</label>
+        <label>Boşluk sayısı:</label>
         <input type="range" id="wa-count-slider" min="1" max="50" value="1" step="1" oninput="waUpdateCount(this.value)">
         <span class="wa-badge" id="wa-count-label">1</span>
       </div>
@@ -69,10 +80,10 @@
       </div>
     </div>
     <div class="wa-info">
-      <span>&#9432;</span>
-      <p>Kopyalad&#305;ktan sonra WhatsApp&#39;ta mesaj kutusuna uzun bas&#305;p <strong>Yap&#305;&#351;t&#305;r</strong> deyin. Kar&#351;&#305; tarafa bo&#351; bir balon gider.</p>
+      <span>ⓘ</span>
+      <p>Kopyaladıktan sonra WhatsApp'ta mesaj kutusuna uzun basıp <strong>Yapıştır</strong> deyin. Karşı tarafa boş bir balon gider.</p>
     </div>
-    <p class="wa-label">Bu arac&#305; &#351;uralarda kullanabilirsiniz:</p>
+    <p class="wa-label">Bu aracı şuralarda kullanabilirsiniz:</p>
     <div class="wa-platform-grid">
       <div class="wa-ptag">WhatsApp</div>
       <div class="wa-ptag">Instagram</div>
@@ -85,38 +96,38 @@
 
   <div id="wa-tab-bulk" class="wa-section">
     <div class="wa-card">
-      <p class="wa-label">5458 adet bo&#351; karakter &mdash; maksimum WhatsApp balonunu olu&#351;turur:</p>
+      <p class="wa-label">5458 adet boş karakter &mdash; maksimum WhatsApp balonunu oluşturur:</p>
       <div class="wa-box" onclick="waCopyBulk()" style="min-height:80px">
         <div class="wa-toast" id="wa-toast-bulk"></div>
         <div style="text-align:center">
           <p style="font-size:28px;font-weight:700;color:#1a73e8;line-height:1">5458</p>
-          <p class="wa-hint" style="margin-top:4px">bo&#351; karakter &mdash; t&#305;kla ve kopyala</p>
+          <p class="wa-hint" style="margin-top:4px">boş karakter &mdash; tıkla ve kopyala</p>
         </div>
       </div>
       <div class="wa-btn-row">
-        <button class="wa-btn" id="wa-btn-bulk" onclick="waCopyBulk()">5458 Bo&#351;lu&#287;u Kopyala</button>
+        <button class="wa-btn" id="wa-btn-bulk" onclick="waCopyBulk()">5458 Boşluğu Kopyala</button>
       </div>
     </div>
     <div class="wa-info" style="background:#fff3e0;border-color:#ffb74d">
-      <span>&#9888;</span>
-      <p style="color:#5d4037">Bu miktar WhatsApp&#39;&#305;n izin verdi&#287;i maksimum say&#305;d&#305;r. G&#246;nderdi&#287;inizde kar&#351;&#305; tarafta &#231;ok b&#252;y&#252;k bo&#351; bir balon olu&#351;ur!</p>
+      <span>⚠️</span>
+      <p style="color:#5d4037">Bu miktar WhatsApp'ın izin verdiği maksimum sayıdır. Gönderdiğinizde karşı tarafta çok büyük boş bir balon oluşur!</p>
     </div>
   </div>
 
   <div id="wa-tab-howto" class="wa-section">
     <div class="wa-card">
-      <p class="wa-label" style="margin-bottom:.75rem">Ad&#305;m ad&#305;m kullan&#305;m:</p>
-      <div class="wa-step"><div class="wa-stepnum">1</div><p>"Tekli Bo&#351;luk" veya "Toplu Bo&#351;luk" sekmesine gidin.</p></div>
-      <div class="wa-step"><div class="wa-stepnum">2</div><p>"Kopyala" butonuna bas&#305;n ya da kutucuğa t&#305;klay&#305;n.</p></div>
-      <div class="wa-step"><div class="wa-stepnum">3</div><p>WhatsApp&#39;&#305; a&#231;&#305;n, arkada&#351;&#305;n&#305;z&#305;n sohbetine girin.</p></div>
-      <div class="wa-step"><div class="wa-stepnum">4</div><p>Mesaj kutusuna uzun bas&#305;n ve <strong>Yap&#305;&#351;t&#305;r</strong>'&#305; se&#231;in.</p></div>
-      <div class="wa-step"><div class="wa-stepnum">5</div><p>G&#246;nder'e bas&#305;n. Kar&#351;&#305; tarafa bo&#351; bir balon gider!</p></div>
+      <p class="wa-label" style="margin-bottom:.75rem">Adım adım kullanım:</p>
+      <div class="wa-step"><div class="wa-stepnum">1</div><p>"Tekli Boşluk" veya "Toplu Boşluk" sekmesine gidin.</p></div>
+      <div class="wa-step"><div class="wa-stepnum">2</div><p>"Kopyala" butonuna basın ya da kutucuğa tıklayın.</p></div>
+      <div class="wa-step"><div class="wa-stepnum">3</div><p>WhatsApp'ı açın, arkadaşınızın sohbetine girin.</p></div>
+      <div class="wa-step"><div class="wa-stepnum">4</div><p>Mesaj kutusuna uzun basın ve <strong>Yapıştır</strong>'ı seçin.</p></div>
+      <div class="wa-step"><div class="wa-stepnum">5</div><p>Gönder'e basın. Karşı tarafa boş bir balon gider!</p></div>
     </div>
     <div class="wa-card">
-      <p class="wa-label" style="margin-bottom:.5rem">S&#305;k sorulan sorular</p>
-      <p style="font-size:14px;color:#555;line-height:1.6;margin-bottom:.75rem"><strong>Neden bo&#351; g&#246;r&#252;n&#252;yor?</strong><br>Bu karakterler Unicode&#39;da yer kaplayan ama g&#246;r&#252;nmeyen "y&#246;n i&#351;aret&#231;i" karakterlerdir.</p>
-      <p style="font-size:14px;color:#555;line-height:1.6;margin-bottom:.75rem"><strong>Zararl&#305; m&#305;?</strong><br>Hay&#305;r, tamamen zarars&#305;z metin karakterleridir.</p>
-      <p style="font-size:14px;color:#555;line-height:1.6"><strong>Neden maksimum 5458?</strong><br>WhatsApp&#39;&#305;n karakter s&#305;n&#305;r&#305; nedeniyle daha fazlas&#305; g&#246;nderilemez.</p>
+      <p class="wa-label" style="margin-bottom:.5rem">Sık sorulan sorular</p>
+      <p style="font-size:14px;color:#555;line-height:1.6;margin-bottom:.75rem"><strong>Neden boş görünüyor?</strong><br>Bu karakterler Unicode'da yer kaplayan ama görünmeyen "yön işaretçi" karakterlerdir.</p>
+      <p style="font-size:14px;color:#555;line-height:1.6;margin-bottom:.75rem"><strong>Zararlı mı?</strong><br>Hayır, tamamen zararsız metin karakterleridir.</p>
+      <p style="font-size:14px;color:#555;line-height:1.6"><strong>Neden maksimum 5458?</strong><br>WhatsApp'ın karakter sınırı nedeniyle daha fazlası gönderilemez.</p>
     </div>
   </div>
 </div>
@@ -148,7 +159,7 @@
   function flashBtn(id, orig){
     var b = document.getElementById(id);
     b.classList.add('ok');
-    b.textContent = 'Kopyaland\u0131!';
+    b.textContent = 'Kopyalandı!';
     setTimeout(function(){
       b.classList.remove('ok');
       b.textContent = orig;
@@ -158,7 +169,7 @@
   function doCopy(text, toastId, btnId, btnOrig){
     if(navigator.clipboard && navigator.clipboard.writeText){
       navigator.clipboard.writeText(text).then(function(){
-        showToast(toastId, 'Kopyaland\u0131!');
+        showToast(toastId, 'Kopyalandı!');
         flashBtn(btnId, btnOrig);
       });
     } else {
@@ -170,7 +181,7 @@
       ta.select();
       document.execCommand('copy');
       document.body.removeChild(ta);
-      showToast(toastId, 'Kopyaland\u0131!');
+      showToast(toastId, 'Kopyalandı!');
       flashBtn(btnId, btnOrig);
     }
   }
@@ -190,7 +201,7 @@
   };
 
   window.waCopyBulk = function(){
-    doCopy(buildBulk(), 'wa-toast-bulk', 'wa-btn-bulk', '5458 Bo\u015flu\u011fu Kopyala');
+    doCopy(buildBulk(), 'wa-toast-bulk', 'wa-btn-bulk', '5458 Boşluğu Kopyala');
   };
 
   window.waSwitchTab = function(name){
@@ -202,3 +213,6 @@
   };
 })();
 </script>
+
+</body>
+</html>
