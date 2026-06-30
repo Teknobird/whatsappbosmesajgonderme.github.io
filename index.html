@@ -37,34 +37,10 @@
     .wa-info p{font-size:13px;color:#795548;line-height:1.5}
     .wa-platform-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(100px,1fr));gap:8px;margin-top:.75rem}
     .wa-ptag{background:#f5f5f5;border:1px solid #e0e0e0;border-radius:8px;padding:6px 10px;font-size:12px;color:#555;text-align:center}
-    
-    /* Mobil İçin Akıllı Scroll Ayarı */
-    .wa-section{
-        display:none;
-        max-height:410px;
-        overflow-y:auto;
-        -webkit-overflow-scrolling:touch;
-        padding-right:4px
-    }
+    .wa-section{display:none}
     .wa-section.active{display:block}
-    
-    /* Modern Görünümlü İnce Kaydırma Çubuğu */
-    .wa-section::-webkit-scrollbar {
-        width: 4px
-    }
-    .wa-section::-webkit-scrollbar-track {
-        background: transparent
-    }
-    .wa-section::-webkit-scrollbar-thumb {
-        background: #ddd;
-        border-radius: 4px
-    }
-    
     .wa-toast{position:absolute;top:-36px;left:50%;transform:translateX(-50%);background:#25D366;color:#fff;font-size:12px;padding:6px 14px;border-radius:20px;white-space:nowrap;opacity:0;transition:opacity .2s;pointer-events:none;box-shadow:0 2px 8px rgba(0,0,0,0.15)}
     .wa-toast.show{opacity:1}
-    .wa-step{display:flex;align-items:flex-start;gap:10px;margin-bottom:8px}
-    .wa-stepnum{width:24px;height:24px;border-radius:50%;background:#f0fdf4;color:#25D366;font-size:12px;font-weight:600;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
-    .wa-step p{font-size:14px;color:#555;line-height:1.5}
     </style>
 </head>
 <body>
@@ -80,7 +56,6 @@
   <div class="wa-tabs">
     <button class="wa-tab active" onclick="waSwitchTab('single')">Tekli Boşluk</button>
     <button class="wa-tab" onclick="waSwitchTab('bulk')">Toplu Boşluk (Max)</button>
-    <button class="wa-tab" onclick="waSwitchTab('howto')">Nasıl Kullanılır?</button>
   </div>
 
   <div id="wa-tab-single" class="wa-section active">
@@ -132,23 +107,6 @@
     <div class="wa-info" style="background:#fff3e0;border-color:#ffb74d">
       <span>⚠️</span>
       <p style="color:#5d4037">Bu miktar WhatsApp'ın izin verdiği maksimum sayıdır. Gönderdiğinizde karşı tarafta çok büyük boş bir balon oluşur!</p>
-    </div>
-  </div>
-
-  <div id="wa-tab-howto" class="wa-section">
-    <div class="wa-card">
-      <p class="wa-label" style="margin-bottom:.75rem">Adım adım kullanım:</p>
-      <div class="wa-step"><div class="wa-stepnum">1</div><p>"Tekli Boşluk" veya "Toplu Boşluk" sekmesine gidin.</p></div>
-      <div class="wa-step"><div class="wa-stepnum">2</div><p>"Kopyala" butonuna basın ya da kutucuğa tıklayın.</p></div>
-      <div class="wa-step"><div class="wa-stepnum">3</div><p>WhatsApp'ı açın, arkadaşınızın sohbetine girin.</p></div>
-      <div class="wa-step"><div class="wa-stepnum">4</div><p>Mesaj kutusuna uzun basın ve <strong>Yapıştır</strong>'ı seçin.</p></div>
-      <div class="wa-step"><div class="wa-stepnum">5</div><p>Gönder'e basın. Karşı tarafa boş bir balon gider!</p></div>
-    </div>
-    <div class="wa-card">
-      <p class="wa-label" style="margin-bottom:.5rem">Sık sorulan sorular</p>
-      <p style="font-size:14px;color:#555;line-height:1.6;margin-bottom:.75rem"><strong>Neden boş görünüyor?</strong><br>Bu karakterler Unicode'da yer kaplayan ama görünmeyen "yön işaretçi" karakterlerdir.</p>
-      <p style="font-size:14px;color:#555;line-height:1.6;margin-bottom:.75rem"><strong>Zararlı mı?</strong><br>Hayır, tamamen zararsız metin karakterleridir.</p>
-      <p style="font-size:14px;color:#555;line-height:1.6"><strong>Neden maksimum 5458?</strong><br>WhatsApp'ın karakter sınırı nedeniyle daha fazlası gönderilemez.</p>
     </div>
   </div>
 </div>
@@ -232,7 +190,7 @@
   };
 
   window.waSwitchTab = function(name){
-    const tabs = ['single','bulk','howto'];
+    const tabs = ['single','bulk'];
     document.querySelectorAll('.wa-section').forEach(s => s.classList.remove('active'));
     document.querySelectorAll('.wa-tab').forEach(t => t.classList.remove('active'));
     document.getElementById('wa-tab-' + name).classList.add('active');
