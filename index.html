@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Google ve diğer arama motorlarının bu sayfayı indekslemesini engeller -->
     <meta name="robots" content="noindex, nofollow">
     <title>WhatsApp Boş Mesaj Gönderici</title>
     
@@ -166,23 +165,36 @@
     }, 1800);
   }
 
+  function fallbackCopy(text, toastId, btnId, btnOrig){
+    var ta = document.createElement('textarea');
+    ta.value = text;
+    ta.style.position = 'fixed';
+    ta.style.opacity = '0';
+    document.body.appendChild(ta);
+    ta.select();
+    try {
+      if(document.execCommand('copy')){
+        showToast(toastId, 'Kopyalandı!');
+        flashBtn(btnId, btnOrig);
+      } else {
+        alert('Lütfen kutucuğa uzun basıp manuel kopyalayın.');
+      }
+    } catch (err) {
+      alert('Lütfen kutucuğa uzun basıp manuel kopyalayın.');
+    }
+    document.body.removeChild(ta);
+  }
+
   function doCopy(text, toastId, btnId, btnOrig){
     if(navigator.clipboard && navigator.clipboard.writeText){
       navigator.clipboard.writeText(text).then(function(){
         showToast(toastId, 'Kopyalandı!');
         flashBtn(btnId, btnOrig);
+      }).catch(function(){
+        fallbackCopy(text, toastId, btnId, btnOrig);
       });
     } else {
-      var ta = document.createElement('textarea');
-      ta.value = text;
-      ta.style.position = 'fixed';
-      ta.style.opacity = '0';
-      document.body.appendChild(ta);
-      ta.select();
-      document.execCommand('copy');
-      document.body.removeChild(ta);
-      showToast(toastId, 'Kopyalandı!');
-      flashBtn(btnId, btnOrig);
+      fallbackCopy(text, toastId, btnId, btnOrig);
     }
   }
 
