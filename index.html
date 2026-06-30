@@ -8,40 +8,41 @@
     
     <style>
     *{box-sizing:border-box;margin:0;padding:0}
-    .wa-wrap{font-family:Arial,sans-serif;max-width:100%;margin:0 auto;padding:0.5rem}
+    body{background:#fff;-webkit-tap-highlight-color:transparent}
+    .wa-wrap{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;max-width:100%;margin:0 auto;padding:0.5rem;user-select:none}
     .wa-header{display:flex !important;flex-direction:row !important;align-items:center !important;gap:10px;margin-bottom:1.25rem;float:none !important}
     .wa-icon{width:36px !important;height:36px !important;min-width:36px;background:#25D366;border-radius:50%;display:flex !important;align-items:center !important;justify-content:center !important;float:none !important;margin:0 !important}
     .wa-icon svg{width:20px !important;height:20px !important;fill:#fff;display:block}
     .wa-wrap h2{font-size:18px;font-weight:600;color:#222;margin:0 !important;padding:0 !important;float:none !important;display:inline !important;line-height:1.3}
     .wa-tabs{display:flex;border:1px solid #ddd;border-radius:8px;overflow:hidden;margin-bottom:1.25rem}
-    .wa-tab{flex:1;padding:10px;text-align:center;font-size:13px;cursor:pointer;background:#f7f7f7;color:#666;border:none;transition:background .15s}
-    .wa-tab.active{background:#fff;color:#111;font-weight:600}
+    .wa-tab{flex:1;padding:12px 10px;text-align:center;font-size:13px;cursor:pointer;background:#f7f7f7;color:#666;border:none;transition:all .15s ease;font-weight:500}
+    .wa-tab.active{background:#fff;color:#111;font-weight:600;box-shadow:inset 0 -2px 0 #25D366}
     .wa-tab:not(:last-child){border-right:1px solid #ddd}
     .wa-card{background:#fff;border:1px solid #e0e0e0;border-radius:12px;padding:1rem 1.25rem;margin-bottom:1rem}
     .wa-label{font-size:13px;color:#777;margin-bottom:.5rem}
-    .wa-box{background:#f5f5f5;border:1px dashed #bbb;border-radius:8px;padding:1rem 0.5rem;min-height:60px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .15s;position:relative;margin-bottom:.75rem}
-    .wa-box:hover{background:#e8f4fe}
-    .wa-hint{font-size:12px;color:#999;text-align:center}
+    .wa-box{background:#f9f9f9;border:1px dashed #bbb;border-radius:8px;padding:1rem 0.5rem;min-height:60px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .15s;position:relative;margin-bottom:.75rem}
+    .wa-box:hover{background:#f0fdf4}
+    .wa-hint{font-size:12px;color:#888;text-align:center}
     .wa-count-row{display:flex;align-items:center;gap:10px;margin-bottom:.75rem}
     .wa-count-row label{font-size:13px;color:#777;white-space:nowrap}
-    .wa-count-row input[type=range]{flex:1}
-    .wa-badge{font-size:13px;font-weight:600;color:#1a73e8;min-width:42px;text-align:right}
+    .wa-count-row input[type=range]{flex:1;accent-color:#25D366}
+    .wa-badge{font-size:13px;font-weight:600;color:#25D366;min-width:42px;text-align:right}
     .wa-btn-row{display:flex;gap:8px}
-    .wa-btn{flex:1;padding:10px 16px;border-radius:8px;border:1px solid #ccc;background:#fff;color:#333;font-size:14px;cursor:pointer;transition:background .15s}
-    .wa-btn:hover{background:#f0f0f0}
+    .wa-btn{flex:1;padding:12px 16px;border-radius:8px;border:1px solid #ccc;background:#fff;color:#333;font-size:14px;font-weight:500;cursor:pointer;transition:all .15s ease}
+    .wa-btn:hover{background:#f7f7f7}
     .wa-btn.ok{border-color:#25D366;color:#25D366;background:#f0fdf4}
-    .wa-btn-max{padding:10px 14px;border-radius:8px;border:1px solid #1a73e8;background:#e8f4fe;color:#1a73e8;font-size:13px;cursor:pointer;transition:background .15s}
-    .wa-btn-max:hover{background:#1a73e8;color:#fff}
+    .wa-btn-max{padding:12px 14px;border-radius:8px;border:1px solid #25D366;background:#f0fdf4;color:#25D366;font-size:13px;font-weight:500;cursor:pointer;transition:all .15s ease}
+    .wa-btn-max:hover{background:#25D366;color:#fff}
     .wa-info{display:flex;align-items:flex-start;gap:8px;background:#fff8e1;border:1px solid #ffe082;border-radius:8px;padding:.75rem;margin-bottom:1rem}
     .wa-info p{font-size:13px;color:#795548;line-height:1.5}
-    .wa-platform-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:8px;margin-top:.75rem}
+    .wa-platform-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(100px,1fr));gap:8px;margin-top:.75rem}
     .wa-ptag{background:#f5f5f5;border:1px solid #e0e0e0;border-radius:8px;padding:6px 10px;font-size:12px;color:#555;text-align:center}
     .wa-section{display:none}
     .wa-section.active{display:block}
-    .wa-toast{position:absolute;top:-36px;left:50%;transform:translateX(-50%);background:#25D366;color:#fff;font-size:12px;padding:5px 12px;border-radius:12px;white-space:nowrap;opacity:0;transition:opacity .2s;pointer-events:none}
+    .wa-toast{position:absolute;top:-36px;left:50%;transform:translateX(-50%);background:#25D366;color:#fff;font-size:12px;padding:6px 14px;border-radius:20px;white-space:nowrap;opacity:0;transition:opacity .2s;pointer-events:none;box-shadow:0 2px 8px rgba(0,0,0,0.15)}
     .wa-toast.show{opacity:1}
     .wa-step{display:flex;align-items:flex-start;gap:10px;margin-bottom:8px}
-    .wa-stepnum{width:24px;height:24px;border-radius:50%;background:#e8f4fe;color:#1a73e8;font-size:12px;font-weight:600;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+    .wa-stepnum{width:24px;height:24px;border-radius:50%;background:#f0fdf4;color:#25D366;font-size:12px;font-weight:600;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
     .wa-step p{font-size:14px;color:#555;line-height:1.5}
     </style>
 </head>
@@ -99,7 +100,7 @@
       <div class="wa-box" onclick="waCopyBulk()" style="min-height:80px">
         <div class="wa-toast" id="wa-toast-bulk"></div>
         <div style="text-align:center">
-          <p style="font-size:28px;font-weight:700;color:#1a73e8;line-height:1">5458</p>
+          <p style="font-size:28px;font-weight:700;color:#25D366;line-height:1">5458</p>
           <p class="wa-hint" style="margin-top:4px">boş karakter &mdash; tıkla ve kopyala</p>
         </div>
       </div>
@@ -133,45 +134,38 @@
 
 <script>
 (function(){
-  var BLANK = '\u200f';
-  var waCount = 1;
+  const BLANK = '\u200f';
+  let waCount = 1;
 
   function buildChars(n){
-    var s = '';
-    for(var i = 0; i < n; i++) s += BLANK;
-    return s;
-  }
-
-  function buildBulk(){
-    var s = '';
-    for(var i = 0; i < 5458; i++) s += BLANK;
-    return s;
+    return BLANK.repeat(n);
   }
 
   function showToast(id, msg){
-    var t = document.getElementById(id);
+    const t = document.getElementById(id);
     t.textContent = msg;
     t.classList.add('show');
-    setTimeout(function(){ t.classList.remove('show'); }, 1600);
+    setTimeout(() => { t.classList.remove('show'); }, 1600);
   }
 
   function flashBtn(id, orig){
-    var b = document.getElementById(id);
+    const b = document.getElementById(id);
     b.classList.add('ok');
     b.textContent = 'Kopyalandı!';
-    setTimeout(function(){
+    setTimeout(() => {
       b.classList.remove('ok');
       b.textContent = orig;
     }, 1800);
   }
 
   function fallbackCopy(text, toastId, btnId, btnOrig){
-    var ta = document.createElement('textarea');
+    const ta = document.createElement('textarea');
     ta.value = text;
     ta.style.position = 'fixed';
     ta.style.opacity = '0';
     document.body.appendChild(ta);
     ta.select();
+    ta.setSelectionRange(0, 99999); // Mobil cihazlar için ek koruma
     try {
       if(document.execCommand('copy')){
         showToast(toastId, 'Kopyalandı!');
@@ -187,10 +181,10 @@
 
   function doCopy(text, toastId, btnId, btnOrig){
     if(navigator.clipboard && navigator.clipboard.writeText){
-      navigator.clipboard.writeText(text).then(function(){
+      navigator.clipboard.writeText(text).then(() => {
         showToast(toastId, 'Kopyalandı!');
         flashBtn(btnId, btnOrig);
-      }).catch(function(){
+      }).catch(() => {
         fallbackCopy(text, toastId, btnId, btnOrig);
       });
     } else {
@@ -213,13 +207,13 @@
   };
 
   window.waCopyBulk = function(){
-    doCopy(buildBulk(), 'wa-toast-bulk', 'wa-btn-bulk', '5458 Boşluğu Kopyala');
+    doCopy(buildChars(5458), 'wa-toast-bulk', 'wa-btn-bulk', '5458 Boşluğu Kopyala');
   };
 
   window.waSwitchTab = function(name){
-    var tabs = ['single','bulk','howto'];
-    document.querySelectorAll('.wa-section').forEach(function(s){ s.classList.remove('active'); });
-    document.querySelectorAll('.wa-tab').forEach(function(t){ t.classList.remove('active'); });
+    const tabs = ['single','bulk','howto'];
+    document.querySelectorAll('.wa-section').forEach(s => s.classList.remove('active'));
+    document.querySelectorAll('.wa-tab').forEach(t => t.classList.remove('active'));
     document.getElementById('wa-tab-' + name).classList.add('active');
     document.querySelectorAll('.wa-tab')[tabs.indexOf(name)].classList.add('active');
   };
